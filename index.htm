@@ -40,7 +40,7 @@
 
         .iframe-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (デフォルト) */
             height: 0;
             overflow: hidden;
             max-width: 100%;
@@ -65,7 +65,7 @@
             font-size: 14px;
         }
 
-        /* スマホでは「試合結果」だけ改行 */
+        /* スマホ対応 - iframeの高さを70%に変更 */
         @media (max-width: 768px) {
             .container {
                 max-width: 95%;
@@ -75,8 +75,26 @@
                 font-size: 18px;
                 padding: 15px;
             }
+            .iframe-container {
+                padding-bottom: 70vh; /* 高さを画面の70%に */
+            }
             .header-break {
-                display: block; /* スマホで改行 */
+                display: block; /* スマホで「試合結果」だけ改行 */
+            }
+        }
+
+        /* PCの縦長表示対応 - 高さの下限を500pxに設定 */
+        @media (min-width: 768px) {
+            .iframe-container {
+                padding-bottom: 56.25%; /* デフォルト */
+                min-height: 500px; /* PCでは最低でも500px確保 */
+            }
+        }
+
+        /* PC用の大画面対応 */
+        @media (min-width: 1400px) {
+            .iframe-container {
+                padding-bottom: 50%; /* PCでは高さを少し増やす */
             }
         }
     </style>
