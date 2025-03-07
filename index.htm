@@ -46,7 +46,6 @@
             max-width: 100%;
             background: #ddd;
             border-radius: 8px;
-            height: 70vh;
         }
 
         .iframe-container iframe {
@@ -76,6 +75,9 @@
                 font-size: 18px;
                 padding: 15px;
             }
+            .iframe-container {
+                padding-bottom: 70vh; /* 高さを画面の70%に */
+            }
             .header-break {
                 display: block; /* スマホで「試合結果」だけ改行 */
             }
@@ -86,6 +88,13 @@
             .iframe-container {
                 padding-bottom: 56.25%; /* デフォルト */
                 min-height: 500px; /* PCでは最低でも500px確保 */
+            }
+        }
+
+        /* PC用の大画面対応 */
+        @media (min-width: 1400px) {
+            .iframe-container {
+                padding-bottom: 50%; /* PCでは高さを少し増やす */
             }
         }
     </style>
