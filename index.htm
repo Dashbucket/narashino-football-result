@@ -3,37 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サッカー試合結果</title>
+    <title>2024年度 習志野市社会人サッカーリーグ 試合結果</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
         }
-        h1 {
-            color: #333;
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
         }
+
+        .container {
+            max-width: 1400px; /* PC用に最大幅を広げる */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         .iframe-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #ddd;
+            border-radius: 8px;
         }
-        iframe {
-            width: 800px;
-            height: 600px;
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* タブレット・スマホ対応 */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 95%;
+                padding: 10px;
+            }
+            header {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+
+        /* PC用の大画面対応 */
+        @media (min-width: 1400px) {
+            .iframe-container {
+                padding-bottom: 45%; /* 画面が広い時に高さを増やす */
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>最新のサッカー試合結果</h1>
-    <div class="iframe-container">
-        <iframe src="https://1drv.ms/x/c/e4af08c03c74475a/IQQKiM1AzL8GSqTR3rKpJbXoAcGhM9P83UTCsgDtnUngD6o"
-                frameborder="0" scrolling="no"></iframe>
+    <header>
+        2024年度 習志野市社会人サッカーリーグ 試合結果
+    </header>
+
+    <div class="container">
+        <div class="iframe-container">
+            <iframe src="https://1drv.ms/x/c/e4af08c03c74475a/IQQKiM1AzL8GSqTR3rKpJbXoAcGhM9P83UTCsgDtnUngD6o"
+                    allowfullscreen></iframe>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2024 習志野市社会人サッカーリーグ | 試合結果
+    </footer>
 
 </body>
 </html>
