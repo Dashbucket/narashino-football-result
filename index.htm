@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 1400px; /* PC用に最大幅を広げる */
+            max-width: 1400px;
             margin: 20px auto;
             padding: 20px;
             background-color: white;
@@ -32,7 +32,7 @@
 
         .iframe-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (デフォルト) */
             height: 0;
             overflow: hidden;
             max-width: 100%;
@@ -57,22 +57,33 @@
             font-size: 14px;
         }
 
-        /* タブレット・スマホ対応 */
-        @media (max-width: 1024px) {
+        /* スマホ対応 - 高さを大きくする */
+        @media (max-width: 768px) {
             .container {
                 max-width: 95%;
                 padding: 10px;
             }
             header {
-                font-size: 20px;
+                font-size: 18px;
                 padding: 15px;
+            }
+            .iframe-container {
+                padding-bottom: 90vh; /* 高さを画面の90%に */
+            }
+        }
+
+        /* PCの縦長表示対応 - 高さの下限を500pxに設定 */
+        @media (min-width: 768px) {
+            .iframe-container {
+                padding-bottom: 56.25%; /* デフォルト */
+                min-height: 500px; /* PCでは最低でも500px確保 */
             }
         }
 
         /* PC用の大画面対応 */
         @media (min-width: 1400px) {
             .iframe-container {
-                padding-bottom: 45%; /* 画面が広い時に高さを増やす */
+                padding-bottom: 50%; /* PCでは高さを少し増やす */
             }
         }
     </style>
